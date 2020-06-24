@@ -16,3 +16,17 @@ function find() {
 function findById(id) {
   return db("schemes").where({ id }).first();
 }
+
+function findSteps(id) {
+  return db("steps as s")
+    .join("schemes as sch", "sch.id", "s.scheme_id")
+    .where("sch.id", id)
+    .select("s.id", "sch.scheme_name", "s.step_number", "s.instructions")
+    .orderBy("s.step_number", "asc");
+}
+
+function add(scheme) {}
+
+function update(changes, id) {}
+
+function remove(id) {}
