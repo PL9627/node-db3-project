@@ -34,9 +34,7 @@ function add(scheme) {
 }
 
 function update(changes, id) {
-
+  return db("schemes").where({ id }).update(changes);
 }
 
-function remove(id) {
-    
-}
+function remove(id) {}
